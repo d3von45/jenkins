@@ -1,11 +1,6 @@
 package org.d3von;
 
-class Docker extends PipelineBase {
-
-
-    Docker(steps) {
-        super(steps)
-    }
+class Docker implements Serializable {
 
     def images(){
         return sh("docker images")
