@@ -12,7 +12,7 @@ class Docker extends PipelineBase {
     }
 
     def cleanUp(){
-        return sh("docker rmi -f $(docker images -aq) && docker system prune -f")
+        return sh("docker rmi -f \$(docker images -aq) && docker system prune -f")
     }
 
     def build(String path, String imageName, String tag){
