@@ -9,23 +9,33 @@ class Docker implements Serializable {
     }
 
     def images(){
-        return steps.sh("docker images")
+        final String outputs = steps.sh(label: 'Docker list all images output', script: 'docker images', returnStdout: true)
+        print outputs
+        return this
     }
     
     def cleanUp(){
-        return steps.sh("docker rmi -f \$(docker images -aq) && docker system prune -f")
+        final String outputs = steps.sh(label: 'Docker clean up output', script: 'docker images', returnStdout: true)
+        print outputs
+        return this
     }
 
-    def build(String path, String imageName, String tag){
-        return steps.sh("docker build -t ${imageName}:${tag} -f ${path} .")
+    def build(){
+        final String outputs = steps.sh(label: 'Docker build image output', script: 'docker images', returnStdout: true)
+        print outputs
+        return this
     }
 
-    def push(String imageName, String tag){
-        return steps.sh("docker push ${imageName}:${tag}")
+    def push(){
+        final String outputs = steps.sh(label: 'Docker push image output', script: 'docker images', returnStdout: true)
+        print outputs
+        return this
     }
 
-    def pull(String imageName, String tag){
-        return steps.sh("docker pull ${imageName}:${tag}")
+    def pull(   ){
+        final String outputs = steps.sh(label: 'Docker pull image output', script: 'docker pull nginx', returnStdout: true)
+        print outputs
+        return this
     }
 
     // def login(String username, String password, String registry){
