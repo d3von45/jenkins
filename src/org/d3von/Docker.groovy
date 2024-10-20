@@ -1,6 +1,6 @@
 package org.d3von;
 
-class Docker implements Serializable {
+class Docker extends PipelineBase {
 
     def steps
 
@@ -9,34 +9,27 @@ class Docker implements Serializable {
     }
 
     def images(){
-        final String outputs = steps.sh(label: 'Docker list all images output', script: 'docker images', returnStdout: true)
-        print outputs
-        steps.echo outputs
-        print "hello world!"
+        sh(label: 'Docker list all images output', script: 'docker images', returnStdout: true)
         return this
     }
     
     def cleanUp(){
-        final String outputs = steps.sh(label: 'Docker clean up output', script: 'docker images', returnStdout: true)
-        print outputs
+        sh(label: 'Docker clean up output', script: 'docker images', returnStdout: true)
         return this
     }
 
     def build(){
-        final String outputs = steps.sh(label: 'Docker build image output', script: 'docker images', returnStdout: true)
-        print outputs
+        sh(label: 'Docker build image output', script: 'docker images', returnStdout: true)
         return this
     }
 
     def push(){
-        final String outputs = steps.sh(label: 'Docker push image output', script: 'docker images', returnStdout: true)
-        print outputs
+        sh(label: 'Docker push image output', script: 'docker images', returnStdout: true)
         return this
     }
 
     def pull(){
-        final String outputs = steps.sh(label: 'Docker pull image output', script: 'docker pull nginx', returnStdout: true)
-        print outputs
+        steps.sh(label: 'Docker pull image output', script: 'docker pull nginx', returnStdout: true)
         return this
     }
 
