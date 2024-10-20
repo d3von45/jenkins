@@ -2,10 +2,8 @@ package org.d3von;
 
 class Docker extends PipelineBase {
 
-    def steps
-
     Docker(steps) {
-        this.steps = steps
+        super(steps)
     }
 
     def images(){
