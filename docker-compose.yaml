@@ -13,6 +13,7 @@ services:
       - 2376:2376
   jenkins:
     image: jenkins-bo:1.0
+    restart: always
     ports:
       - 8080:8080
     environment:

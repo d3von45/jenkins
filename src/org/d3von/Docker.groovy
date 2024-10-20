@@ -11,6 +11,8 @@ class Docker implements Serializable {
     def images(){
         final String outputs = steps.sh(label: 'Docker list all images output', script: 'docker images', returnStdout: true)
         print outputs
+        echo outputs
+        print "hello world!"
         return this
     }
     
@@ -32,7 +34,7 @@ class Docker implements Serializable {
         return this
     }
 
-    def pull(   ){
+    def pull(){
         final String outputs = steps.sh(label: 'Docker pull image output', script: 'docker pull nginx', returnStdout: true)
         print outputs
         return this
