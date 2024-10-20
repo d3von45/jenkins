@@ -7,27 +7,27 @@ class Docker extends PipelineBase {
     }
 
     def images(){
-        this.sh(label: 'Docker list all images output', script: 'docker images', returnStdout: true)
+        super.sh(label: 'Docker list all images output', script: 'docker images', returnStdout: true)
         return this
     }
     
     def cleanUp(){
-        this.sh(label: 'Docker clean up output', script: 'docker images', returnStdout: true)
+        super.sh(label: 'Docker clean up output', script: 'docker images', returnStdout: true)
         return this
     }
 
     def build(){
-        this.sh(label: 'Docker build image output', script: 'docker images', returnStdout: true)
+        super.sh(label: 'Docker build image output', script: 'docker images', returnStdout: true)
         return this
     }
 
     def push(){
-        this.sh(label: 'Docker push image output', script: 'docker images', returnStdout: true)
+        super.sh(label: 'Docker push image output', script: 'docker images', returnStdout: true)
         return this
     }
 
     def pull(){
-        this.sh(label: 'Docker pull image output', script: 'docker pull nginx', returnStdout: true)
+        super.sh(label: 'Docker pull image output', script: 'docker pull nginx', returnStdout: true)
         return this
     }
 
