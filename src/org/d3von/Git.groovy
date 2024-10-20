@@ -1,9 +1,11 @@
 package org.d3von;
 
-class Git extends PipelineBase {
+class Git extends implements Serializable {
+    
+    def steps
 
     Git(steps) {
-        super(steps)
+       this.steps = steps
     }
     
     def branch(String branch) {

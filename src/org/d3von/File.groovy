@@ -1,24 +1,26 @@
 package org.d3von;
 
-class File extends PipelineBase {
+class File implements Serializable {
     
+    def steps
+
     File(steps) {
-        super(steps)
+        this.steps = steps
     }
     
     def copy(String file, String destination) {
-        return sh("if [ -f \"${file}\" ]; then cp \"${file}\" \"${destination}\"; fi ")
+        return steps.sh("if [ -f \"${file}\" ]; then cp \"${file}\" \"${destination}\"; fi ")
     }
 
     def move(String file, String destination) {
-        return sh("if [ -f \"${file}\" ]; then mv \"${file}\" \"${destination}\"; fi ")
+        return steps.sh("if [ -f \"${file}\" ]; then mv \"${file}\" \"${destination}\"; fi ")
     }
 
     def remove(String file) {
-        return sh("if [ -f \"${file}\" ]; then rm \"${file}\"; fi ")
+        return steps.sh("if [ -f \"${file}\" ]; then rm \"${file}\"; fi ")
     }
 
     def dos2unix(String file) {
-        return sh("dos2unix \"${file}\" ")
+        return steps.sh("dos2unix \"${file}\" ")
     }
 }
